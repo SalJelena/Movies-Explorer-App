@@ -6,6 +6,18 @@ export default class TheMovieDbApi {
         this.apiKey = apiKey;
     }
 
+    getPopularMovies = async (page = 1) => {
+        const response = await fetch(`${this.apiBaseUrl}/movie/popular?api_key=${this.apiKey}&page=${page}`)
+
+        return response.json();
+    }
+    
+    getMovie = async (id) => {
+        const response = await fetch(`${this.apiBaseUrl}/movie/${id}?api_key=${this.apiKey}&append_to_response=recommendations`)
+
+        return response.json();
+    }
+
     searchMovies = async (query) => {
         const response = await fetch(`${this.apiBaseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`)
 

@@ -39,8 +39,8 @@ const Layout = ({children}) => {
                 <Img src={logoImg} alt="The Movie db" />
             </Link>
             <SearchMoviesSuggestion />
+            {children}
         </LayoutWrapper>
-        {children}
     </ThemeProvider>
     )
 }
